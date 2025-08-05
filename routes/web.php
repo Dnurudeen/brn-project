@@ -12,7 +12,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/register', [RegisterController::class, 'continue'])->name('registration.continue');
+Route::get('/continue/registration', [RegisterController::class, 'continue'])->name('registration.continue');
 
 Auth::routes();
 

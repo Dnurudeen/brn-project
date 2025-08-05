@@ -60,11 +60,13 @@ class RegisterController extends Controller
     public function continue(Request $request)
     {
         try {
-            $decrypted = Crypt::decryptString($request->query('data'));
+            $encryptedData = $request->query('data');
+
+            $decrypted = Crypt::decryptString($encryptedData);
             $userData = json_decode($decrypted, true);
 
             return view('auth.register', [
-                'name' => $userData['name'],
+                'name' => $userData['full_name'],
                 'email' => $userData['email'],
             ]);
         } catch (\Exception $e) {
